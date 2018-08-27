@@ -115,33 +115,34 @@ class SideBar extends React.Component {
           <h2>Recent Posts</h2>
           <a onClick={this.closeNav.bind(this)} className="closebtn">&times;</a>
           </div>
-
-            {this.state.posts.map((item,i) =>
-                <div  key={i} id={"post"+i} className="Post"
-                      onClick={
-                        this.handleClick.bind(
-                          this,
-                          item.data.title,
-                          item.data.author,
-                          item.data.thumbnail
-                          )
-                      }>
-                    <div id="Title">
-                      <h2>{item.data.author}</h2>
-                    </div>
-                    <div id="Thumbnail">
-                      <img src={item.data.thumbnail} />
-                    </div>
-                    <div id="content">
-                      <p>{item.data.title}</p>
-                    </div>
-                    <div id="footer">
-                      <button className="btnDismiss" value={i} onClick={this.dismissClick.bind(this, item.value)}>Dismiss X</button>
-                      <div id="comments">Comments: {item.data.score}</div>
-                    </div>
-                </div>
-              )
-            }
+            <div id="allContent">
+              {this.state.posts.map((item,i) =>
+                  <div  key={i} id={"post"+i} className="Post"
+                        onClick={
+                          this.handleClick.bind(
+                            this,
+                            item.data.title,
+                            item.data.author,
+                            item.data.thumbnail
+                            )
+                        }>
+                      <div id="Title">
+                        <h2>{item.data.author}</h2>
+                      </div>
+                      <div id="Thumbnail">
+                        <img src={item.data.thumbnail} />
+                      </div>
+                      <div id="content">
+                        <p>{item.data.title}</p>
+                      </div>
+                      <div id="footer">
+                        <button className="btnDismiss" value={i} onClick={this.dismissClick.bind(this, item.value)}>Dismiss X</button>
+                        <div id="comments">Comments: {item.data.score}</div>
+                      </div>
+                  </div>
+                )
+              }
+            </div>
         </div>
         <div id="userDataDisplay">
         <div id="Thumbnail">
@@ -153,9 +154,6 @@ class SideBar extends React.Component {
         <div id="TitleWindow">
           <h2>{this.state.singlePost.title}</h2>
         </div>
-
-
-
 
       </div>
       </div>
