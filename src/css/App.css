@@ -81,6 +81,7 @@
   float: left;
   margin-bottom: 2px;
   padding:5px;
+  cursor: pointer;
 }
 
 #Thumbnail{
@@ -98,7 +99,7 @@ img{
 #content{
   float:left;
   width:200px;
-  height:76px;
+  height:71px;
   padding:2px;
   overflow:hidden;
 }
@@ -126,10 +127,14 @@ img{
   padding-bottom: 5px;
 }
 .btnDismiss{
-  width:32%;
+  width:80px;
   float:left;
   font-size: 13px;
   line-height:20px;
+  background-color: #C80A0A;
+  border: none;
+  color:white;
+  z-index: 5;
 }
 #comments{
   width: 50%;
@@ -143,7 +148,7 @@ img{
   text-align:left;
   font-size: 13px;
   padding-top:3px;
-  color:white;
+  color:#e0dcdc;
   padding-left: 7px;
 
 }
@@ -154,15 +159,90 @@ img{
 
 }
 .openBtn{
-  font-size:30px;cursor:pointer
+  font-size: 24px;
+  cursor: pointer;
+  color: #2f3640;
+  text-transform:uppercase;
+}
+#openCont{
+  font-size: 18px;
+  margin-top: 7px;
+  margin-left: 7px;
+  color:#2f3640;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 /*USER SCREEN*/
 #userDataDisplay{
-  margin-left: 450px;
-  width:35%;
-  height:100%;
+  width: 95%;
+  height: auto;
   position: absolute;
   float: left;
-  background-color:gray;
+  background-color: #2f3640;
+  border: solid 4px;
+  padding:5px;
+  margin-top:34px;
 }
+
+#userDataDisplay #Thumbnail{
+  background-color:darkgray;
+  max-width: 80px;
+  max-height: 110px;
+  float: left;
+}
+
+#userDataDisplay #authorName{
+  background-color:#2f3640;
+  max-width: 80px;
+  max-height: 30px;
+  float: left;
+}
+
+#userDataDisplay img{
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  background-image: url('user.png')
+}
+
+#userDataDisplay h2{
+ font-size: 13px;
+ text-transform: uppercase;
+}
+#TitleWindow{
+ font-size: 13px;
+ text-transform: uppercase;
+ width: 73%;
+ float: left;
+ padding-right:5px;
+ padding-bottom:5px;
+ padding-left:5px;
+}
+
+#userDataDisplay h3{
+ font-size: 11px;
+ color:#ffeaa7;
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    float: left;
+    display: inline;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+

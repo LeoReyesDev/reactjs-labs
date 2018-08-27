@@ -40,6 +40,10 @@ class SideBar extends React.Component {
      console.log(" [----- POST -----] ", this.state.singlePost)
   }
 
+  dismissClick(e,id){
+    console.log("name div:",e.target,"ID: ",id)
+  }
+
 
   openNav(){
       document.getElementById('mySidenav').style.width = "330px";
@@ -53,12 +57,16 @@ class SideBar extends React.Component {
   render() {
     return(
       <div id="container">
-        <span className="openBtn" onClick={this.openNav.bind(this)} >&#9776; open</span>
+        <div id="openCont">
+          <ul>
+            <li><span onClick={this.openNav.bind(this)} >&#9776;</span></li>
+            <li><span onClick={this.openNav.bind(this)} >Open</span></li>
+          </ul>
+        </div>
         <div id="mySidenav" className="sidenav">
           <h2>Recent Posts</h2>
           <a onClick={this.closeNav.bind(this)} className="closebtn">&times;</a>
             {this.state.posts.map((item,i) =>
-
                 <div  key={i} id={"post"+i} className="Post"
                       onClick={
                         this.handleClick.bind(
@@ -68,7 +76,6 @@ class SideBar extends React.Component {
                           item.data.thumbnail
                           )
                       }>
-
                     <div id="Title">
                       <h2>{item.data.author}</h2>
                     </div>
@@ -79,7 +86,7 @@ class SideBar extends React.Component {
                       <p>{item.data.title}</p>
                     </div>
                     <div id="footer">
-                      <button className="btnDismiss" onClick={this.handleClick.bind(this, item.id)}>Dismiss X</button>
+                      <button className="btnDismiss" onClick={this.dismissClick.bind(this, item.id)}>Dismiss X</button>
                       <div id="comments">Comments: {item.data.score}</div>
                     </div>
                 </div>
@@ -87,10 +94,18 @@ class SideBar extends React.Component {
             }
         </div>
         <div id="userDataDisplay">
-        <p>DATA USER</p>
-        <h1>Title: {this.state.singlePost.title}</h1>
-        <h2>Author: {this.state.singlePost.authorPost}</h2>
-        <h3>Thumbnail: {this.state.singlePost.thumbnail}</h3>
+        <div id="Thumbnail">
+            <img src= {this.state.singlePost.thumbnail} />
+            <div id="authorName">
+               <h3>{this.state.singlePost.authorPost}</h3>
+            </div>
+        </div>
+        <div id="TitleWindow">
+          <h2>{this.state.singlePost.title}</h2>
+        </div>
+
+
+
 
       </div>
       </div>
