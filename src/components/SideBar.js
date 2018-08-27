@@ -16,32 +16,30 @@ class SideBar extends React.Component {
       singlePost:{
         id:'',
         title:'',
-        author:'',
-        url:'',
-        score:'',
-        link:'',
+        authorPost:'',
+        thumbnail:''
       }
     }
   }
 
   componentDidMount() {
 
-    console.log("POSTS",dataJson.data.children[0].data.title)
+    console.log("POSTS",dataJson.data.children)
 
   }
 
-  handleClick(e,t,a,u,s,l){
+  handleClick(e,t,a,divId){
      this.setState({
         singlePost: {
-          id:e,
-          title:e,t,
-          author:a,
-          url:u,
-          score:s,
-          link:l        }
+          id:divId,
+          title:e,
+          authorPost:t,
+          thumbnail:a
+        }
       })
      console.log(" [----- POST -----] ", this.state.singlePost)
   }
+
 
   openNav(){
       document.getElementById('mySidenav').style.width = "330px";
@@ -66,10 +64,8 @@ class SideBar extends React.Component {
                         this.handleClick.bind(
                           this,
                           item.data.title,
-                          item.data.name,
-                          item.data.url,
-                          item.data.score,
-                          item.data.link
+                          item.data.author,
+                          item.data.thumbnail
                           )
                       }>
 
@@ -93,13 +89,8 @@ class SideBar extends React.Component {
         <div id="userDataDisplay">
         <p>DATA USER</p>
         <h1>Title: {this.state.singlePost.title}</h1>
-        <h2>Author: {this.state.singlePost.name}</h2>
-        <h3>Url: {this.state.singlePost.url}</h3>
-        <h4>Score: {this.state.singlePost.score}</h4>
-       {/* <h5>Link: {this.state.singlePost.link}</h5>*/}
-
-
-
+        <h2>Author: {this.state.singlePost.authorPost}</h2>
+        <h3>Thumbnail: {this.state.singlePost.thumbnail}</h3>
 
       </div>
       </div>
