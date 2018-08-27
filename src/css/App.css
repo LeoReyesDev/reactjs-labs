@@ -80,6 +80,7 @@
   width: 300px;
   float: left;
   margin-bottom: 2px;
+  padding:5px;
 }
 
 #Thumbnail{
@@ -89,15 +90,17 @@
   float: left;
 }
 img{
-  max-width: 80px;
-  max-height: 80px;
+  width: 80px;
+  height: 80px;
   background-size: cover;
+  background-image: url('user.png')
 }
 #content{
   float:left;
   width:200px;
   height:76px;
   padding:2px;
+  overflow:hidden;
 }
 #Title{
   float:left;
@@ -119,6 +122,8 @@ img{
   background-color:;
   float:left;
   color:orange;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 .btnDismiss{
   width:32%;
@@ -127,10 +132,11 @@ img{
   line-height:20px;
 }
 #comments{
-  width:50%;
-  float:left;
+  width: 50%;
+  float: right;
   font-size: 13px;
-  line-height:20px;
+  line-height: 20px;
+  text-align: right;
 }
 
  p {
