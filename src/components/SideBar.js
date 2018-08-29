@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './../css/App.css';
 import dataJson from './../data/top.json'
-//import UserScreen from './UserScreen'
+import UserScreen from './UserScreen'
+import { TweenMax } from 'gsap'
 
 
 class SideBar extends React.Component {
@@ -10,7 +11,7 @@ class SideBar extends React.Component {
     this.state = {
       error: null,
       isLoaded: false,
-      items: [],
+      postDiv: [],
       author:'',
       erasePost:'',
       posts: dataJson.data.children,
@@ -92,12 +93,43 @@ class SideBar extends React.Component {
   openNav(){
       document.getElementById('mySidenav').style.width = "330px";
       console.log("OpenMenu")
-      document.getElementById("barTitle").style.display = "block";
+      let barMenu = document.getElementById("barTitle")
+
+      barMenu.style.display = "block"
+      barMenu.style.opacity = 0;
+
+      TweenMax.to(barMenu, 0.5, {opacity:1, delay:0.3})
+      TweenMax.to('#allContent', 0.3, {opacity:1})
+
+
+      let itemsPosts
+      let post
+      let num = 0.1
+
+      itemsPosts = this.state.posts
+
+      for( let i=0; i<itemsPosts.length; i++){
+        post = 'post' + i
+        document.getElementById(post).style.opacity = 0
+        let postIdDiv = '#' + post
+        num += 0.08
+        TweenMax.to(postIdDiv, 0.5, {opacity:1, delay:num})
+
+        console.log('TOTAL POSTS >>>>>>', postIdDiv)
+        console.log('Number', num)
+      }
+
+
   }
 
   closeNav() {
       document.getElementById("mySidenav").style.width = "0";
-      document.getElementById("barTitle").style.display = "none";
+      TweenMax.to('#barTitle', 0.1, {opacity:0, onComplete:noneDisplay})
+      TweenMax.to('#allContent', 0.3, {opacity:0})
+      function noneDisplay(){
+        document.getElementById("barTitle").style.display = "none";
+      }
+
   }
   /* [OPEN SIDE BAR  ================================================== ♛ */
 
@@ -144,18 +176,11 @@ class SideBar extends React.Component {
               }
             </div>
         </div>
-        <div id="userDataDisplay">
-        <div id="Thumbnail">
-            <img src= {this.state.singlePost.thumbnail} />
-            <div id="authorName">
-               <h3>{this.state.singlePost.authorPost}</h3>
-            </div>
-        </div>
-        <div id="TitleWindow">
-          <h2>{this.state.singlePost.title}</h2>
-        </div>
-
-      </div>
+        <UserScreen
+            thumbnail={this.state.singlePost.thumbnail}
+            authorPost={this.state.singlePost.authorPost}
+            title={this.state.singlePost.title}
+        />
       </div>
 
     )
