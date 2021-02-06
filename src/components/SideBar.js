@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './../css/App.css';
-import dataJson from './../data/top.json';
 import { TweenMax } from 'gsap';
 import LightBox from './LightBox';
 
