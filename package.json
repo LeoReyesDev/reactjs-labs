@@ -3,10 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.11.3",
     "gsap": "^2.0.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-scripts": "1.1.5"
+    "react-scripts": "1.1.5",
+    "eslint": "*",
+    "prettier": "*", 
+    "babel-eslint": "*",
+    "eslint-config-prettier": "*",
+    "eslint-plugin-react": "*"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-//import logo from './logo.svg';
 import './css/App.css';
 import SideBar from './components/SideBar';
+import LightBox from './components/LightBox';
 
-class App extends Component {
-  render() {
-    return (
+const App = () => {
+  return (
+    <div>
       <SideBar />
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default App;
