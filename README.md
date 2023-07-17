@@ -8,4 +8,5 @@ npm start
 
 <h5> If you want checkout demo </h5>
 https://labs.leoreyesdev.com/reactjs-api/
+![demo-sidebar](https://github.com/LeoReyesDev/reactjs-labs/assets/19556132/3ffe6673-0d3f-4fb5-8b9f-e8440a75c969)
 
